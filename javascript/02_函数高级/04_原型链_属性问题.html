@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		/**
+		 * 1. 读取对象的属性时: 会自动到原型链中查找
+		 * 2. 设置对象的属性时: 不会查找原型链，如果当前对象中没有属性，直接添加此属性并设置其值
+		 * 3. 方法一般定义在原型中，属性一般通过构造函数定义在对象本身上
+		 */
+		<script type="text/javascript">
+			function Person() {
+				
+			}
+			Person.prototype.a = 'xxx';
+			var person = new Person();
+			console.log(person.a) //xxx
+			
+			var person2 = new Person();
+			person2.a = 'yyy';
+			console.log(person2.a)//yyy
+			
+			function Person2(name, age) {
+				this.name = name;
+				this.age = age;
+			}
+			Person2.prototype.setName = function(name) {
+				this.name = name;
+			}
+			var p1 = new Person2('Tom', 12);
+			p1.setName('Bob');
+			console.log(p1);//Person2
+			console.log(p1.name, p1.age);//Bob 12
+		</script>
+	</body>
+</html>
