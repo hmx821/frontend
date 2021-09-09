@@ -34,6 +34,16 @@
 				},
 				decrement() {
 					this.counter--;
+				},
+				btnClick: () => {
+					// this === window? 不可以
+					// 写成一个箭头函数时，这个this就是window
+					console.log(this);
+				},
+				btnClick2: () => {
+					// this === window? 不可以
+					// 写成一个箭头函数时，这个this就是window
+					console.log(this);
 				}
 			}
 		}).mount("#app");
