@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			
+		</div>
+		<template id="my-app">
+			<div :style="[style1Obj, style2Obj]">hahha</div>
+		</template>
+		<script src="../js/vue.js"></script>
+		<script>
+			const App = {
+				template: '#my-app',
+				data() {
+					return {
+						message: "Hello World",
+						style1Obj: {
+							color: 'red',
+							fontSize: '30px'
+						},
+						style2Obj: {
+							textDecoration: "underline"
+						}
+					}
+				}
+			}
+			
+			Vue.createApp(App).mount("#app");
+		</script>
+	</body>
+</html>
