@@ -28,10 +28,12 @@
     "postcss-preset-env": "^6.7.0",
     "style-loader": "^3.2.1",
     "url-loader": "^4.1.1",
+    "vue-loader": "^16.5.0",
     "webpack": "^5.52.1",
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {
+    "@vue/compiler-sfc": "^3.2.11",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "vue": "^3.2.11"

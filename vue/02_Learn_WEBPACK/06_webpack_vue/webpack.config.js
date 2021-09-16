@@ -7,6 +7,7 @@ const {
 	DefinePlugin
 } = require("webpack");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader/dist/index');
 
 module.exports = {
 	// 设置模式
@@ -61,6 +62,10 @@ module.exports = {
 				test: /\.js$/,
 				loader: "babel-loader"
 				
+			},
+			{
+				test: /\.vue$/,
+				loader: "vue-loader"
 			}
 			// {
 			// 	test: /\.js$/,
@@ -87,7 +92,11 @@ module.exports = {
 			title: "vue"
 		}),
 		new DefinePlugin({
-			BASE_URL: "'./'"
+			BASE_URL: "'./'",
+			// 将vue3代码对vue2做适配，不需要就选false,打包后容量变小
+			__VUE_OPTIONS_API__: true,
+			// 是否在生产环境下保留devtools
+			__VUE_PROD_DEVTOOLS__: false
 		}),
 		new CopyWebpackPlugin({
 			patterns: [
@@ -101,6 +110,7 @@ module.exports = {
 					}
 				}
 			]
-		})
+		}),
+		new VueLoaderPlugin()
 	]
 }
